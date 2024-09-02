@@ -28,7 +28,7 @@ python prepare_video.py
 ```
 
 ### SMPL-X to COCO Whole-body Keypoints
-This script could read a SMPL-X pose projected to a camera space and convert it to COCO whole-body keypoints format and visualize them like the `DWPose`'s output. The projection script from 3D SMPL-X keypoints to 2D could be found in [here](https://github.com/pixelite1201/BEDLAM/blob/master/data_processing/df_full_body.py). The SMPL-X keypoints and camera parameters in the syetheic data will be released soon.
+This script could read existing 2D SMPL-X keypoints (i.e., already projected to a camera space) and convert them to COCO whole-body keypoints format and visualize them like the `DWPose`'s output. The projection script from 3D SMPL-X keypoints to 2D could be found in [here](https://github.com/pixelite1201/BEDLAM/blob/master/data_processing/df_full_body.py). The SMPL-X keypoints and camera parameters in the syetheic data will be released soon.
 ```
 python extract_pose_from_smplx_ue.py
 ```
