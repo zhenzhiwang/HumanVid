@@ -1,4 +1,4 @@
-# HumanVid: Demystifying Training Data for Camera-controllable Human Image Animation
+## HumanVid: Demystifying Training Data for Camera-controllable Human Image Animation [NeurIPS D&B Track 2024]
 <div align='Center'>
     <a href='https://humanvid.github.io/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
     <a href='https://arxiv.org/abs/2407.17438'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
@@ -9,6 +9,7 @@
 ![framework](assets/framework.png)
 
 # News
+- **`2024/09/27`**: Our paper is accepted by NeurIPS D&B Track 2024.
 - **`2024/09/02`**: The Internet video part of HumanVid is released. Please download the video urls and camera parameters from [here](https://drive.google.com/drive/folders/1UGEkOKXYX9BGUFz0ao6lOGXkZjQGoJcZ?usp=sharing). 
 
 # Video Data
