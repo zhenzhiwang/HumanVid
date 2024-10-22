@@ -3,7 +3,7 @@ import numpy as np
 
 class Camera(object):
     def __init__(self, entry, pose_file_name, image_scale=(1920, 1080)):
-        assert len(entry) == 8 or len(entry) == 11, f"length of entry should be 11 (extrinsic + fx fy + scale) or 8 (extrinsic), got {len(entry)}"
+        assert len(entry) == 8 or len(entry) == 10, f"length of entry should be 10 (extrinsic + fx fy) or 8 (extrinsic), got {len(entry)}"
         if image_scale[0] > image_scale[1]:
             self.fx = 0.688 if len(entry) == 8 else entry[8]
             self.fy = self.fx * (image_scale[0] / image_scale[1])
@@ -18,7 +18,6 @@ class Camera(object):
         self.timestamp = entry[0]
         tx, ty, tz = entry[1:4]
         qx, qy, qz, qw = entry[4:8]
-        scale = entry[10] if len(entry) == 11 else 1.0
         # normalize quaternion
         norm = np.linalg.norm([qx, qy, qz, qw])
         if np.abs(norm - 1) > 1e-3:
