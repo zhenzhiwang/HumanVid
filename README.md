@@ -27,6 +27,11 @@ The videos are in the OneDrive link. The videos are seperated in `3d` and `hdri`
 # Camera Trajectory Format
 We follow [Droid-SLAM](https://github.com/princeton-vl/DROID-SLAM) and [DPVO](https://github.com/princeton-vl/DPVO) use [TUM Camera Format](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/file_formats) 'timestamp tx ty tz qx qy qz qw' format for camera trajectory. The timestamp is number of frame. The tx, ty, tz are the translation of the camera in meters. The qx, qy, qz, qw are the quaternion of the camera rotation. For camera intrinsics, assuming the camera has a standard 36mm CMOS, we heuristically set the focal length to 50mm (horizontal) and 75mm (vertical) and the principal point to the center of the image, based on the observation on Internet videos. We empirically find that it works well.
 
+For Unreal Engine rendered videos, we provide the camera parameters in the `ue_camera.zip` file. The format is 'timestamp tx ty tz qx qy qz qw fx fy scale', which is the same as the TUM format. The fx and fy are the normalized focal lengths. The scale is the scale factor for camera translations.
+
+To better understand our camera parameter processing scripts (e.g., modifications over CameraCtrl), the camera processing code is in `src/dataset/img_dataset.py`. The complete code will be released later.
+
+
 # Human Pose Extraction
 Please refer to the `DWPose` folder for scripts of extracting and visualizing whole-body poses. Note that I have added a little modification on foot by also visualizing the keypoints on the foot. It also contains the keypoints convertion from SMPL-X to COCO Keypoints format. For pretrained checkpoints, please refer to the [DWPose](https://github.com/IDEA-Research/DWPose) repository.
 
