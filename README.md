@@ -21,7 +21,37 @@ The pexels video data is collected from the Internet and we cannot redistribute 
 **Updates:** The video urls in Pexels.com are changed by the website team. We have updated the video urls in the txt file ending with `new`. Please use the new urls for downloading the videos.
 
 ## Unreal Engine rendered videos
-The videos are in the OneDrive link. The videos are seperated in `3d` and `hdri`, indicating that the videos are rendered with 3D scene asset or HDRI image scene.
+The videos are in the OneDrive link (the `training_video` folder). `3d_video_*` means videos are rendered from 3D scene background and `generated_video_*` means videos are rendered from HDRI images as background. The final file structure should be like:
+```
+training_video/
+├── 3d_video_1/
+│   ├── camera/
+│   ├── dwpose/
+│   └── mp4/
+├── 3d_video_2/
+│   ├── camera/
+│   ├── dwpose/
+│   └── mp4/
+├── 3d_video_3/
+├── 3d_video_4/
+├── 3d_video_5/
+├── 3d_video_6/
+├── 3d_video_7/
+├── 3d_video_8/
+├── 3d_video_9/
+├── 3d_video_10/
+├── generated_video_1/
+├── generated_video_2/
+├── generated_video_3/
+├── generated_video_4/
+├── generated_video_5/
+├── generated_video_6/
+├── generated_video_7/
+├── generated_video_8/
+├── generated_video_9/
+└── generated_video_10/
+```
+The `training_video` folder of OneDrive link contains all files in the `mp4` folder. Please first unzip `ue_camera.zip` and put each sub-folder to the corresponding position in `training_video`. Then unzip `2d_keypoints.zip` and use `python extract_pose_from_smplx_ue.py` to produce mp4 dwpose files from the 2d keypoints information saved in the `2d_keypoints` folder.
 
 
 # Camera Trajectory Format
