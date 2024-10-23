@@ -6,7 +6,7 @@
 
 This repository is the official implementation of the paper:
 >[**HumanVid: : Demystifying Training Data for Camera-controllable Human Image Animation**](https://arxiv.org/abs/2407.17438) <br>
-> [Zhenzhi Wang](https://zhenzhiwang.github.io/), [Yixuan Li](https://yixuanli98.github.io/), [Yanhong Zeng](https://zengyh1900.github.io/), [Youqing Fang](#), [Yuwei Guo](https://guoyww.github.io/), <br> [Wenran Liu](#), [Jing Tan](https://sparkstj.github.io/), [Kai Chen](https://chenkai.site/), [Tianfan Xue](https://tianfan.info/), [Bo Dai](https://daibo.info/), [Dahua Lin](http://dahua.site/)
+> [Zhenzhi Wang](https://zhenzhiwang.github.io/), [Yixuan Li](https://yixuanli98.github.io/), [Yanhong Zeng](https://zengyh1900.github.io/), [Youqing Fang](#), [Yuwei Guo](https://guoyww.github.io/), <br> [Wenran Liu](#), [Jing Tan](https://sparkstj.github.io/), [Kai Chen](https://chenkai.site/), [Tianfan Xue](https://tianfan.info/), [Bo Dai](https://daibo.info/), [Dahua Lin](http://dahua.site/) <br>
 CUHK, Shanghai AI Lab
 
 ## TL;DR
