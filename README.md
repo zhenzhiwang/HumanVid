@@ -23,6 +23,7 @@ The pexels video data is collected from the Internet and we cannot redistribute 
 ## Unreal Engine rendered videos
 The videos are in the OneDrive link (the `training_video` folder). `3d_video_*` means videos are rendered from 3D scene background and `generated_video_*` means videos are rendered from HDRI images as background. The final file structure should be like:
 ```
+2d_keypoints/
 training_video/
 ├── 3d_video_1/
 │   ├── camera/
