@@ -10,7 +10,7 @@ This repository is the official implementation of the paper:
 CUHK, Shanghai AI Lab
 
 ## TL;DR
-HumanVid is a new dataset for camera-controllable human image animation, which enables training video diffusion models to generate videos with camera movement like movies. In addition, it could also enable reproducing methods like Animate-Anyone by just setting the camera to be static in the inference by training models only on videos with camera movement, reducing the difficulty of static-camera video collection. To verify this, our proposed baseline model CamAnimate shows impressive results, which could be found in the [website](https://humanvid.github.io/). This repo will provide all the data and code to achieve such performance.
+HumanVid is a new dataset for camera-controllable human image animation, which enables training video diffusion models to generate videos with camera movement like movies. As a by-product, it could also enable reproducing methods like Animate-Anyone by just setting the camera to be static in the inference. We show that models only trained on videos with camera movement could achieve very good static background appearance as long as the camera annotations in the training set is accurate, reducing the difficulty of static-camera video collection.  To verify our statements, our proposed baseline model CamAnimate shows impressive results, which could be found in the [website](https://humanvid.github.io/). This repo will provide all the data and code to achieve the performance shown in our demo.
 
 ## Framework
 ![framework](assets/framework.png)
