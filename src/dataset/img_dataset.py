@@ -1,16 +1,17 @@
 import torch
 import numpy as np
+from packaging import version as pver
 
 class Camera(object):
     def __init__(self, entry, pose_file_name, image_scale=(1920, 1080)):
-        assert len(entry) == 8 or len(entry) == 10, f"length of entry should be 10 (extrinsic + fx fy) or 8 (extrinsic), got {len(entry)}"
+        assert len(entry) == 10 or len(entry) == 11, f"length of entry should be 11 (extrinsic + fx fy + scale) or 10 (+ fx fy), got {len(entry)}"
         if image_scale[0] > image_scale[1]:
-            self.fx = 0.688 if len(entry) == 8 else entry[8]
+            self.fx = entry[8]
             self.fy = self.fx * (image_scale[0] / image_scale[1])
             self.cx = 0.5
             self.cy = 0.5
         else:
-            self.fy = 0.688 if len(entry) == 8 else entry[9]
+            self.fy = entry[9]
             self.fx = self.fy * (image_scale[1] / image_scale[0])
             self.cx = 0.5
             self.cy = 0.5
@@ -18,42 +19,41 @@ class Camera(object):
         self.timestamp = entry[0]
         tx, ty, tz = entry[1:4]
         qx, qy, qz, qw = entry[4:8]
+        scale = entry[10] if len(entry) == 11 else 1.0
         # normalize quaternion
         norm = np.linalg.norm([qx, qy, qz, qw])
         if np.abs(norm - 1) > 1e-3:
             with open("./data/broken_kps_videos.txt", "a") as f:
                 f.write(f"{pose_file_name}'s quaternion is not well normalized! \n")
         qx, qy, qz, qw = [x / norm for x in [qx, qy, qz, qw]]
+
+
         # Convert quaternion to rotation matrix
         rotation_matrix = self.quaternion_to_rotation_matrix(qx, qy, qz, qw)
-        
+
         # Create the translation vector
-        translation_vector = np.array([tx, ty, tz])
-        
-        if "synthetic" in pose_file_name:
+        translation_vector = np.array([tx, ty, tz]) * scale
+
+        if "synthetic" in pose_file_name:            
             # Create the world-to-camera transformation matrix
             self.w2c_mat = np.eye(4)
             self.w2c_mat[:3, :3] = rotation_matrix
             self.w2c_mat[:3, 3] = translation_vector
-            
+
             # Invert the matrix to get the camera-to-world transformation matrix
             self.c2w_mat = np.linalg.inv(self.w2c_mat)
-
-        elif "pexels" in pose_file_name:
+        else:
             # Create the camera-to-world transformation matrix
             self.c2w_mat = np.eye(4)
             self.c2w_mat[:3, :3] = rotation_matrix
             self.c2w_mat[:3, 3] = translation_vector
-            
+
             # Invert the matrix to get the world-to-camera transformation matrix
             self.w2c_mat = np.linalg.inv(self.c2w_mat)
-        else:
-            raise ValueError(f"Unknown camera pose file name: {pose_file_name}")
-        
+
     @staticmethod
     def quaternion_to_rotation_matrix(qx, qy, qz, qw):
         # Convert a quaternion to a rotation matrix
-        # Using the formula from https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
         R = np.array([
             [1 - 2*qy**2 - 2*qz**2,     2*qx*qy - 2*qz*qw,     2*qx*qz + 2*qy*qw],
             [2*qx*qy + 2*qz*qw,         1 - 2*qx**2 - 2*qz**2, 2*qy*qz - 2*qx*qw],

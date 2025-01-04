@@ -16,7 +16,7 @@ HumanVid is a new dataset for camera-controllable human image animation, which e
 ![framework](assets/framework.png)
 
 ## News
-- **`2025/01/03`** : More accurate camera parameters are released in the Google Drive named `camera_tram.zip`. It is predicted from the original [tram](https://github.com/yufu-wang/tram) method with SAM masks and Driod-SLAM. We 
+- **`2025/01/03`** : More accurate camera parameters are released in the Google Drive named `camera_tram.zip`. It is predicted from the original [tram](https://github.com/yufu-wang/tram) method with SAM masks and Driod-SLAM. Such camera annotations cost much more GPU hours than the previous version, and it produces better camera control ability by only using Internet videos. We also updated `Camera` class in `src/dataset/img_dataset.py`.
 - **`2024/10/20`**: The UE synthetic video part of HumanVid is released. Please download the videos, human poses and camera parameters from [here](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155189552_link_cuhk_edu_hk/EoLw3qmoeFFEq88f87TZRfkB6w7FWFsnfeedfu52wk1rgw?e=yYH0n1), password `humanvid_ue`.
 - **`2024/09/27`**: Our paper is accepted by NeurIPS D&B Track 2024.
 - **`2024/09/02`**: The Internet video part of HumanVid is released. Please download the video urls and camera parameters from [here](https://drive.google.com/drive/folders/1UGEkOKXYX9BGUFz0ao6lOGXkZjQGoJcZ?usp=sharing). 
