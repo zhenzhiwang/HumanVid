@@ -95,10 +95,21 @@ python extract_pose_from_smplx_ue.py
 Please give us a star if you are interested in our work. Thanks!
 ## Bibtex
 ```
-@article{wang2024humanvid,
-title={HumanVid: Demystifying Training Data for Camera-controllable Human Image Animation},
-author={Wang, Zhenzhi and Li, Yixuan and Zeng, Yanhong and Fang, Youqing and Guo, Yuwei and Liu, Wenran and Tan, Jing and Chen, Kai and Xue, Tianfan and Dai, Bo and others},
-journal={arXiv preprint arXiv:2407.17438},
-year={2024}
+@inproceedings{DBLP:conf/nips/00010ZF0LTCX0L24,
+  author       = {Zhenzhi Wang and
+                  Yixuan Li and
+                  Yanhong Zeng and
+                  Youqing Fang and
+                  Yuwei Guo and
+                  Wenran Liu and
+                  Jing Tan and
+                  Kai Chen and
+                  Tianfan Xue and
+                  Bo Dai and
+                  Dahua Lin},
+  title        = {HumanVid: Demystifying Training Data for Camera-controllable Human
+                  Image Animation},
+  booktitle    = {NeurIPS},
+  year         = {2024}
 }
 ```
