@@ -16,6 +16,7 @@ HumanVid is a new dataset for camera-controllable human image animation, which e
 ![framework](assets/framework.png)
 
 ## News
+- **`2025/04/23`**: We released all training code, inference code, and checkpoints.
 - **`2025/01/03`** : More accurate camera parameters are released in the Google Drive named `camera_tram.zip`. It is predicted from the original [tram](https://github.com/yufu-wang/tram) method with SAM masks and Driod-SLAM. Such camera annotations cost much more GPU hours than the previous version, and it produces better camera control ability by only using Internet videos. We also updated `Camera` class in `src/dataset/img_dataset.py`.
 - **`2024/10/20`**: The UE synthetic video part of HumanVid is released. Please download the videos, human poses and camera parameters from [here](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155189552_link_cuhk_edu_hk/EoLw3qmoeFFEq88f87TZRfkB6w7FWFsnfeedfu52wk1rgw?e=yYH0n1), password `humanvid_ue`.
 - **`2024/09/27`**: Our paper is accepted by NeurIPS D&B Track 2024.
@@ -87,10 +88,27 @@ This script could read existing 2D SMPL-X keypoints (i.e., already projected to 
 ```
 python extract_pose_from_smplx_ue.py
 ```
+
+
+## Training and Inference
+
+### Conda Environment
+Please prepare conda environment following [Moore-AnimateAnyone](https://github.com/MooreThreads/Moore-AnimateAnyone). We also provided a `environment.yml` file for reference.
+
+### Download weights
+Please prepare weights following [Moore-AnimateAnyone](https://github.com/MooreThreads/Moore-AnimateAnyone). Please also download the SD1.5 verison weight of [CameraCtrl](https://github.com/hehao13/CameraCtrl) and put it to `pretrained_weights/cameractrl`.
+
+Our pretrained checkpoints could be accessed in `https://huggingface.co/zhenzhiwang/humanvid`. This checkpoint should be equal to the performance shown in our [homepage](https://humanvid.github.io/).
+
+### Usage
+**Training**, stage1: `bash scripts/train_s1.sh` and stage2: `bash scripts/train_s2.sh`.
+**Inference**: `bash scripts/eval.sh`.
+Our code structure is very similar to [Moore-AnimateAnyone](https://github.com/MooreThreads/Moore-AnimateAnyone). Please check their readme for more details.
+
 ## Todo
 - [x] Release the synthetic data part.
-- [ ] Release the inference code.
-- [ ] Release the training code and checkpoint.
+- [x] Release the inference code.
+- [x] Release the training code and checkpoint.
 
 Please give us a star if you are interested in our work. Thanks!
 ## Bibtex

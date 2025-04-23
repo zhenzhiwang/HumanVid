@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES='1' accelerate launch train_stage_1.py --config configs/train/stage1.yaml

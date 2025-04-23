@@ -1,0 +1,1 @@
+python -m scripts.eval_pose2img --config ./configs/prompts/stage2.yaml -W 512 -H 896 --repeat 1 

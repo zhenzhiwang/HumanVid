@@ -1,0 +1,94 @@
+data:
+  train_bs: 8
+  train_size_small: 512
+  train_size_large: 896
+  horizontal_meta:
+    - "./data/json_files/pexels-ue_horizontal_10.0s.json"
+
+  vertical_meta:
+    - "./data/json_files/pexels-tiktok-ubc_vertical_10.0s.json"
+    
+  # Margin of frame indexes between ref and tgt images
+  sample_margin: 30
+
+solver:
+  gradient_accumulation_steps: 1
+  mixed_precision: 'fp16'
+  enable_xformers_memory_efficient_attention: True 
+  gradient_checkpointing: False 
+  max_train_steps: 30010
+  max_grad_norm: 1.0
+  # lr
+  learning_rate: 1.0e-5
+  scale_lr: False 
+  lr_warmup_steps: 1
+  lr_scheduler: 'constant'
+  # lora
+  use_lora: False
+  lora_rank: 128
+  lora_alpha: 128
+
+  # optimizer
+  use_8bit_adam: False 
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_weight_decay:  1.0e-2
+  adam_epsilon: 1.0e-8
+
+val:
+  validation_steps: 200000
+
+# camera pose
+pose_encoder_kwargs:
+  downscale_factor: 8
+  channels: [320]
+  nums_rb: 2
+  cin: 384
+  ksize: 1
+  sk: true
+  use_conv: false
+  compression_factor: 1
+  temporal_attention_nhead: 8
+  attention_block_types: ["Temporal_Self", ]
+  temporal_position_encoding: true
+  temporal_position_encoding_max_len: 16
+attention_processor_kwargs:
+  add_spatial: false
+  spatial_attn_names: 'attn1'
+  add_temporal: true
+  temporal_attn_names: '0'
+  pose_feature_dimensions: [320]
+  query_condition: true
+  key_value_condition: true
+  scale: 1.0
+
+noise_scheduler_kwargs:
+  num_train_timesteps: 1000
+  beta_start:          0.00085
+  beta_end:            0.012
+  beta_schedule:       "scaled_linear"
+  steps_offset:        1
+  clip_sample:         false
+
+base_model_path: './pretrained_weights/stable-diffusion-v1-5/'
+vae_model_path: './pretrained_weights/sd-vae-ft-mse'
+image_encoder_path: './pretrained_weights/image_encoder'
+pose_guider_path: './pretrained_weights/moore-ckpt/pose_guider.pth'
+denoising_unet_path: ""
+reference_unet_path: ""
+camera_pose_encoder_path: "./pretrained_weights/cameractrl/CameraCtrl.ckpt"
+
+#weight_dtype: 'fp16'  # [fp16, fp32]
+uncond_ratio: 0.1
+noise_offset: 0.05
+snr_gamma: 5.0
+enable_zero_snr: True 
+pose_guider_pretrain: True 
+
+seed: 12580
+resume_from_checkpoint: ''
+resume_step: 15000
+checkpointing_steps: 5000
+save_model_epoch_interval: 2
+exp_name: 'stage1_ue_pexels_ubc_tiktok_camera'
+output_dir: './exp_output'

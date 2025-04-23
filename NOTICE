@@ -1,0 +1,25 @@
+==============================================================
+This repo also contains various third-party components and some code modified from other repos under other open source licenses. The following sections contain licensing infromation for such third-party libraries.
+
+-----------------------------
+magic-animate
+BSD 3-Clause License
+Copyright (c) Bytedance Inc.
+
+-----------------------------
+animatediff
+Apache License, Version 2.0
+
+-----------------------------
+Dwpose
+Apache License, Version 2.0
+
+-----------------------------
+Moore-AnimateAnyone
+Apache License, Version 2.0
+Copyright (c) Moore Threads Technology Co., Ltd
+
+-----------------------------
+inference pipeline for animatediff-cli-prompt-travel
+animatediff-cli-prompt-travel
+Apache License, Version 2.0
