@@ -98,7 +98,13 @@ Please prepare conda environment following [Moore-AnimateAnyone](https://github.
 ### Download weights
 Please prepare weights following [Moore-AnimateAnyone](https://github.com/MooreThreads/Moore-AnimateAnyone). Please also download the SD1.5 verison weight of [CameraCtrl](https://github.com/hehao13/CameraCtrl) and put it to `pretrained_weights/cameractrl`.
 
-Our pretrained checkpoints could be accessed in [HuggingFace](https://huggingface.co/zhenzhiwang/humanvid). This checkpoint should be equal to the performance shown in our [homepage](https://humanvid.github.io/).
+Our pretrained checkpoints could be accessed in the [HuggingFace](https://huggingface.co/zhenzhiwang/humanvid). This checkpoint should be equal to the performance shown in our [homepage](https://humanvid.github.io/).
+
+
+### Prepare meta information for Training set
+Please use scripts in `./tools` to extract all valid videos, pose files and camera files as the training set. 
+
+Here we provide an example: Firstly, extract valid paths by using `./tools/extract_*_meta_info.py`. Then combine them to be a single meta information file by using `./tools/merge_all_meta_info.py`. Finally, we split all videos larger than 10s to be smaller segments, by using `./tools/get_video_segments.py` to add each segment's starting frame and ending frame to the meta infos.
 
 ### Usage
 **Training**, stage1: `bash scripts/train_s1.sh` and stage2: `bash scripts/train_s2.sh`.
