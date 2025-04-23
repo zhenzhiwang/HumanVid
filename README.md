@@ -98,7 +98,7 @@ Please prepare conda environment following [Moore-AnimateAnyone](https://github.
 ### Download weights
 Please prepare weights following [Moore-AnimateAnyone](https://github.com/MooreThreads/Moore-AnimateAnyone). Please also download the SD1.5 verison weight of [CameraCtrl](https://github.com/hehao13/CameraCtrl) and put it to `pretrained_weights/cameractrl`.
 
-Our pretrained checkpoints could be accessed in `https://huggingface.co/zhenzhiwang/humanvid`. This checkpoint should be equal to the performance shown in our [homepage](https://humanvid.github.io/).
+Our pretrained checkpoints could be accessed in [HuggingFace](https://huggingface.co/zhenzhiwang/humanvid). This checkpoint should be equal to the performance shown in our [homepage](https://humanvid.github.io/).
 
 ### Usage
 **Training**, stage1: `bash scripts/train_s1.sh` and stage2: `bash scripts/train_s2.sh`.
