@@ -102,7 +102,9 @@ Our pretrained checkpoints could be accessed in `https://huggingface.co/zhenzhiw
 
 ### Usage
 **Training**, stage1: `bash scripts/train_s1.sh` and stage2: `bash scripts/train_s2.sh`.
+
 **Inference**: `bash scripts/eval.sh`.
+
 Our code structure is very similar to [Moore-AnimateAnyone](https://github.com/MooreThreads/Moore-AnimateAnyone). Please check their readme for more details.
 
 ## Todo
